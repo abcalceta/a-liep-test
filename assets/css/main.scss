@@ -1,0 +1,14 @@
+---
+---
+
+$fa-font-path: '{{ site.baseurl }}/assets/webfonts';
+
+@import 'conference';
+
+.navbar-logo > a > img {
+  max-width: 100px;
+}
+
+.navbar {
+  background-color: #c4d4f2!important;
+}
