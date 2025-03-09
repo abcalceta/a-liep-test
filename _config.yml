@@ -24,16 +24,24 @@ exclude:
 # Collections and their defaults
 collections:
   talks:
-    output: true
+    output: false
     permalink: /:collection/:title/
   speakers:
-    output: true
+    output: false
     permalink: /:collection/:title/
   rooms:
+    output: false
+    permalink: /:collection/:title/
+  "2019":
     output: true
     permalink: /:collection/:title/
 
+
+
 defaults:
+  - scope:
+      path: ""
+      type: calls
   - scope:
       path: ""
       type: talks
@@ -70,23 +78,30 @@ conference:
       url: 'https://a-liep.org/'
     breakpoint: md
     links:
-      - name: Program
-        relative_url: /program/
-      - name: Talks
-        relative_url: /talks/
-      - name: Speakers
-        relative_url: /speakers/
-      - name: Location
-        relative_url: /location/
-      - name: Previous Editions
+      - name: About A-LIEP
+        relative_url: /about/
+      - name: Past Conferences
         menu:
-          - name: 2020 (current)
+          - name: 2023 (current)
             disabled: true
-          - name: 2019
-            relative_url: /2019/
-          - name: 2018
-            relative_url: /2018/
-
+          - name: "2021"
+            disabled: true
+            subfolderitems:
+              - page: Articles/News
+                url: /2021/articles.html
+              - page: Proceedings
+                url: /2021/proceedings.html
+              - page: Photos
+                url: /2021/photos.html
+          - name: "2019"
+            disabled: true
+            subfolderitems:
+              - page: Articles/News
+                url: /2019/articles.html
+              - page: Proceedings
+                url: /2019/proceedings.html
+              - page: Photos
+                url: /2019/photos.html
   # Link Preview for Sharing
   link_preview:
     # also adapt "preposition" property at top for more meaningful descriptions
@@ -98,15 +113,17 @@ conference:
   # Main landing page
   main:
     # logo:
-    #   img: ''
+      # img: "assets/images/A-LLIEP LOGO.png"
+
     links:
-      - name: Program
-        relative_url: /program/
-      - name: How to get there
-        relative_url: /location/
-      - name: Tickets
-        disabled: true
-        absolute_url: ''
+      - name: Call for Papers
+        relative_url: /calls/
+      - name: Tracks
+        relative_url: /tracks/
+      - name: Venue
+        relative_url: /venue/
+      - name: Registration
+        relative_url: /registration/
 
   # Information boxes
   # info_bars:
@@ -125,6 +142,8 @@ conference:
 
   # Live indications
   live:
+    hide: true
+
     date: 01.01.2020
     timezone: GMT+1
     stop:       240  # in minutes
@@ -139,6 +158,8 @@ conference:
       pause:     10  # in seconds
 
   talks:
+    hide: true
+
     # Talk categories
     main_categories:
       - name: Cat A
@@ -150,12 +171,14 @@ conference:
     hide_icons: false
 
   speakers:
+    hide: true
+
     # Show first and last name
     show_firstname: true
 
   location:
     # Disable links to locations
-    hide: false
+    hide: true
     # URL of location / room overview page
     url: '/location'
     # Main page title shown on location/room navigation bar
@@ -174,11 +197,13 @@ conference:
 
 
   program:
+    hide: true
+
     # URL of program page
-    url: '/program'
+    # url: '/program'
 
     # Time steps in program table
     time_steps: 15 # in minutes
 
     # Show intermediary time steps (next to full hours)
-    show_alltimes: true
+    # show_alltimes: true

@@ -5,10 +5,40 @@ $fa-font-path: '{{ site.baseurl }}/assets/webfonts';
 
 @import 'conference';
 
+
+
+body {
+  font-family: "Montserrat"!important, sans-serif;
+  font-size: 100%;
+  font-weight: 300;
+  font-style: normal;
+}
+
+
 .navbar-logo > a > img {
   max-width: 100px;
 }
 
 .navbar {
-  background-color: #c4d4f2!important;
+  background-color: #1D1E6B!important;
+}
+
+.navbar-brand{
+  color: white!important;
+}
+
+.nav-link {
+  color: white!important;
+}
+
+blockquote {
+  font-size: 1.2em;
+  font-weight: 200;
+  font-style: normal;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;
 }

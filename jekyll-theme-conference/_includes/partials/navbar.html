@@ -1,0 +1,114 @@
+<style>
+/* Positioning the second-level dropdown */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+  display: none;
+  position: absolute;
+}
+
+/* Show submenu on hover */
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+</style>
+
+<nav class="navbar navbar-expand-{{ site.conference.navigation.breakpoint | default: 'md' }} navbar-light bg-light mb-3">
+  <div class="container">
+    <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        {%- for link in site.conference.navigation.links -%}
+          {% if link.menu %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown{{ forloop.index0 }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ link.name }}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown{{ forloop.index0 }}">
+                {%- for child_link in link.menu -%}
+                  {% if child_link.subfolderitems %}
+                    <div class="dropdown-submenu">
+                      <a class="dropdown-item dropdown-toggle" href="{{ child_link.relative_url | default: '#' }}">{{ child_link.name }}</a>
+                      <ul class="dropdown-menu dropright">
+                        {% for subitem in child_link.subfolderitems %}
+                          <li><a class="dropdown-item" href="{{ subitem.url }}">{{ subitem.page }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  {% elsif child_link.disabled %}
+                    <span class="dropdown-item disabled">{{ child_link.name }}</span>
+                  {% else %}
+                    <a class="dropdown-item" href="{{ child_link.relative_url }}">{{ child_link.name }}</a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </li>
+          {% elsif link.live %}
+            {%- include partials/get_live_timestamps.html -%}
+            {% if link.name_inactive %}
+              <li class="nav-item live-hide" data-start="{{ live_starts }}" data-end="{{ live_ends }}">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{ link.name_inactive }}</a>
+              </li>
+            {% endif %}
+            <li class="nav-item live-show d-none" data-start="{{ live_starts }}" data-end="{{ live_ends }}">
+              {% if site.conference.live.streaming.enable %}
+                <a class="nav-link" href="{{ site.conference.live.streaming.external | default: '#' }}">
+                  {{ link.name | default: site.data.lang[site.conference.lang].live.stream | default: "Live Stream" }}
+                  <span class="live-button badge badge-dark font-weight-normal text-left">
+                    <object data="{{ site.baseurl }}/assets/icons/live.svg" type="image/svg+xml">!</object>
+                    {{ site.data.lang[site.conference.lang].live.live | default: "Live" }}
+                  </span>
+                </a>
+              {% else %}
+                <a class="nav-link" data-toggle="modal" data-target="#stream-modal" href="#">{{ link.name }}</a>
+              {% endif %}
+            </li>
+          {% else %}
+            <li class="nav-item {% if page.url contains link.relative_url %}active{% endif %}">
+              <a class="nav-link" href="{{ link.relative_url }}">{{ link.name }}</a>
+            </li>
+          {% endif %}
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    {% if site.conference.navigation.logo %}
+      <div class="navbar-brand navbar-logo mr-0 ml-1 text-right overflow-hidden">
+        <a href="{{ site.conference.navigation.logo.url }}">
+          {% if site.conference.navigation.logo.img %}
+            <img src="{{ site.baseurl }}/assets/images/{{ site.conference.navigation.logo.img }}" class="align-middle" alt="{{ site.conference.navigation.logo.name }}">
+          {% else %}
+            {{ site.conference.navigation.logo.name }}
+          {% endif %}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</nav>
+
+
+<script>
+  // Optional: toggle submenu on click
+  document.addEventListener('DOMContentLoaded', function () {
+    const dropdownSubmenus = document.querySelectorAll('.dropdown-submenu > a');
+
+    dropdownSubmenus.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        const submenu = el.nextElementSibling;
+        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  });
+</script>
