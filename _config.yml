@@ -35,13 +35,24 @@ collections:
   "2019":
     output: true
     permalink: /:collection/:title/
-
-
+  "2021":
+    output: true
+    permalink: /:collection/:title/
+  current_2023:
+    output: true
+    permalink: /:collection/:title/
 
 defaults:
   - scope:
       path: ""
       type: calls
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: current_2023
+    values:
+      layout: image_carousel
   - scope:
       path: ""
       type: talks
@@ -84,6 +95,9 @@ conference:
         menu:
           - name: 2023 (current)
             disabled: true
+            subfolderitems:
+              - page: Photos
+                url: /current_2023/photos/index.html
           - name: "2021"
             disabled: true
             subfolderitems:
