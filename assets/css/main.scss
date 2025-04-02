@@ -14,6 +14,17 @@ body {
   font-style: normal;
 }
 
+.btn-outline-primary {
+  color: #1D1E6B !important;
+  border-color: #1D1E6B !important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-outline-primary:hover {
+  color: white !important; /* or keep #1D1E6B if you prefer */
+  background-color: #1D1E6B !important;
+  border-color: #1D1E6B !important;
+}
 
 .navbar-logo > a > img {
   max-width: 100px;

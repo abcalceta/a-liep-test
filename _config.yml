@@ -1,9 +1,9 @@
-title: A-LIEP
+title:  Asia-Pacific Library and Information Education and Practice
 preposition: at
 description: >-
-  Advancing Library and Information Education and Practice in Asia and the Pacific
+  A-LIEP
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://example.com" # the base hostname & protocol for your site, e.g. https://example.com
+url: "https://a-liep.org" # the base hostname & protocol for your site, e.g. https://example.com
 
 theme: jekyll-theme-conference
 
@@ -93,9 +93,11 @@ conference:
         relative_url: /about/
       - name: Past Conferences
         menu:
-          - name: 2023 (current)
+          - name: "2023"
             disabled: true
             subfolderitems:
+              - page: About
+                url: /current_2023/index.html
               - page: Photos
                 url: /current_2023/photos/index.html
           - name: "2021"
@@ -130,14 +132,20 @@ conference:
       # img: "assets/images/A-LLIEP LOGO.png"
 
     links:
-      - name: Call for Papers
-        relative_url: /calls/
-      - name: Tracks
+      # - name: Call for Papers
+      #   relative_url: /calls/
+      #   disabled: true
+      - name: Tracks and Integration Sessions
         relative_url: /tracks/
-      - name: Venue
-        relative_url: /venue/
+      - name: Submission and Formatting Guide
+        relative_url: /submission/
+      - name: Dates to Remember
+        relative_url: /dates/
+      - name: Topics
+        relative_url: /topics/
       - name: Registration
         relative_url: /registration/
+
 
   # Information boxes
   # info_bars:

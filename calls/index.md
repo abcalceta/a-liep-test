@@ -4,7 +4,7 @@ title: Call for Papers for the A-LIEP 2025 Conference
 permalink: /calls/
 ---
 
-<!-- # Call for Papers for the A-LIEP 2025 Conference -->
+# Call for Papers for the A-LIEP 2025 Conference
 
 The Asia-Pacific Library and Information Education and Practice (A-LIEP) Conference invites you to submit papers for the 2025 Conference to be held on December 3-5, 2025 hosted by the School of Library and Information Studies, University of the Philippines. This year’s conference is co-located with the International Conference on Asia-Pacific Digital Libraries (ICADL) and the annual meeting of the Asia-Pacific chapter of iSchools (AP iSchools) under a collective title “2025 International Forum on Data, Information, and Knowledge for Sustainable and Ethical Societies.”
 
